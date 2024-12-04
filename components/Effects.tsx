@@ -9,9 +9,9 @@ export function Effects() {
     Bloom: folder({
       bloomEnabled: true,
       luminanceThreshold: { value: 1, min: -10, max: 1, step: 0.01 },
-      mipmapBlur: true,
-      luminanceSmoothing: { value: 0.01, min: -50, max: 35, step: 0.01 },
-      intensity: { value: 0.1, min: -10, max: 15, step: 0.01 },
+      mipmapBlur: false,
+      luminanceSmoothing: { value: 0.05, min: -50, max: 35, step: 0.01 },
+      intensity: { value: 0.05, min: -10, max: 15, step: 0.01 },
     }),
   });
 
@@ -31,11 +31,11 @@ export function Effects() {
   return (
     <EffectComposer>
       <Bloom {...bloomProps} />
-      <Noise
+      {/* <Noise
         premultiply={noiseProps.premultiply}
         blendFunction={noiseProps.blendFunction as BlendFunction}
         opacity={noiseProps.opacity}
-      />
+      /> */}
     </EffectComposer>
   );
 }

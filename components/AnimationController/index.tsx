@@ -32,9 +32,7 @@ export function AnimationController({
       </div>
 
       <div className="w-full flex flex-col justify-end">
-        <p className="text-2xl mb-6 font-light">
-          Find your reaction for Proxie
-        </p>
+        <p className="text-2xl mb-6 font-light">List Animations</p>
 
         <ul className="grid grid-cols-4 gap-4">
           {ANIMATION_NAMES.map((animation) => (
