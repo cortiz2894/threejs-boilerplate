@@ -18,27 +18,25 @@ export default function Scene() {
   });
 
   return (
-    <Container>
-      <section className="flex flex-col lg:flex-row gap-10 w-full h-screen">
-        <div className="w-full h-full relative" ref={containerRef}>
-          <Leva collapsed />
-          <Canvas
-            style={{
-              width: "100%",
-              height: "100%",
-              overflow: "hidden",
-            }}
-          >
-            <OrthographicCamera
-              makeDefault
-              zoom={100}
-              position={[positionX, positionY, positionZ]}
-            />
-            <Effects />
-            <Model />
-          </Canvas>
-        </div>
-      </section>
-    </Container>
+    <section className="flex flex-col lg:flex-row gap-10 w-full h-screen">
+      <div className="w-full h-full relative" ref={containerRef}>
+        <Leva collapsed />
+        <Canvas
+          style={{
+            width: "100%",
+            height: "100%",
+            overflow: "hidden",
+          }}
+        >
+          <OrthographicCamera
+            makeDefault
+            zoom={100}
+            position={[positionX, positionY, positionZ]}
+          />
+          <Effects />
+          <Model />
+        </Canvas>
+      </div>
+    </section>
   );
 }
