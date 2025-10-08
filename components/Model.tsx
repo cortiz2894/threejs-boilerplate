@@ -5,6 +5,7 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 import { Object3D } from "three";
 import * as THREE from "three";
 import { GLTF } from "three-stdlib";
+import { useFrame } from "@react-three/fiber";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -18,13 +19,13 @@ type GLTFResult = GLTF & {
 type ModelProps = {} & JSX.IntrinsicElements["group"];
 
 export function Model({ ...props }: ModelProps) {
-  const group = useRef<Object3D>(null);
+  const groupRef = useRef<Object3D>(null);
 
   const { nodes, materials, animations } = useGLTF(
-    "glb/basic_mesh.glb"
+    "glb/3d-chrome-logo.glb"
   ) as GLTFResult;
 
-  const { actions } = useAnimations(animations, group);
+  const { actions } = useAnimations(animations, groupRef);
 
   const emissiveMaterial = useMemo(
     () =>
@@ -50,18 +51,26 @@ export function Model({ ...props }: ModelProps) {
     []
   );
 
+  useFrame((state, delta) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y += delta * 0.5;
+    }
+  });
+
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} ref={groupRef}>
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Cube.geometry}
-        material={emissiveMaterial}
-        position={[0, 1.769, -0.103]}
-        rotation={[0.798, 0.792, 0]}
+        //@ts-ignore
+        geometry={nodes["Recurso_1mountains-v3"].geometry}
+        //@ts-ignore
+        material={materials["Material.001"]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.198}
       />
     </group>
   );
 }
 
-useGLTF.preload("glb/basic_mesh.glb");
+useGLTF.preload("glb/3d-chrome-logo.glb'");
