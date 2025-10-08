@@ -1,5 +1,7 @@
 # Three.js Boilerplate 2025
 
+<img width="1215" height="821" alt="Captura de pantalla 2025-10-07 a la(s) 9 16 45 p  m" src="https://github.com/user-attachments/assets/e8d41edf-e9f5-4efb-ba10-fafb9c7b433a" />
+
 A modern Three.js boilerplate built with Next.js 13, React Three Fiber, and TypeScript. This starter template provides a solid foundation for building interactive 3D web experiences with best practices and powerful tooling out of the box.
 
 ## ✨ Features
